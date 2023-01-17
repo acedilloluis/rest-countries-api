@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Card from './components/Card';
+import SearchBar from './components/SearchBar';
+import Filter from './components/Filter';
 /* const FILTER_MAP = {
   All: () => true,
   Africa: (country) => country[0].region === 'Africa',
@@ -17,7 +19,7 @@ export default function App() {
 
   useEffect(() => {
     try {
-      fetch('https://restcountries.com/v3.1/name/japan')
+      fetch('https://restcountries.com/v3.1/all')
         .then((response) => response.json())
         .then((json) => setCountries(json));
     } catch (error) {
@@ -25,12 +27,12 @@ export default function App() {
     }
   }, []);
 
-  const card = countries.map((country) => (
+  const cards = countries.map((country) => (
     <Card
       key={country.name.common}
       name={country.name.common}
       pop={country.population}
-      capital={country.capital[0]}
+      capital={country.capital}
       region={country.region}
       flag={country.flags.svg}
     />
@@ -39,7 +41,15 @@ export default function App() {
   return (
     <>
       <Header />
-      {card}
+
+      <form className="flex flex-nowrap items-center justify-between">
+        <SearchBar />
+        <Filter />
+      </form>
+
+      <div className="grid auto-rows-[minmax(350px,auto)] grid-cols-[repeat(auto-fill,minmax(305px,1fr))] gap-3">
+        {cards}
+      </div>
     </>
   );
 }
