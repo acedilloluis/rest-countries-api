@@ -50,7 +50,7 @@ export default function App() {
     <>
       <Header />
 
-      <div className="flex flex-nowrap items-center justify-between">
+      <div className="mb-6 flex flex-nowrap items-center justify-between px-5">
         <SearchBar setSearchTerm={setSearchTerm} />
         <Filter setFilter={setFilter} />
       </div>

@@ -32,7 +32,7 @@ function Card({ name, pop, capital, region, flag }) {
 Card.propTypes = {
   name: PropTypes.string,
   pop: PropTypes.number,
-  capital: PropTypes.string,
+  capital: PropTypes.array,
   region: PropTypes.string,
   flag: PropTypes.string,
 };

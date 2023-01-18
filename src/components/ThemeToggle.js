@@ -1,31 +1,26 @@
 import React, { useState } from 'react';
-import filledSun from '../images/213-sun-filled.svg';
-import sun from '../images/213-sun.svg';
 
 function ThemeToggle() {
   const [theme, setTheme] = useState('dark');
-  let icon = filledSun;
 
   function handleChange() {
     if (theme === 'dark') {
       setTheme('light');
       document.querySelector('body').classList.remove('dark');
-      icon = filledSun;
     } else {
       setTheme('dark');
       document.querySelector('body').classList.add('dark');
-      icon = sun;
     }
   }
 
   return (
-    <label className="flex flex-nowrap items-center font-[600]">
+    // eslint-disable-next-line tailwindcss/no-contradicting-classname
+    <label className="flex flex-nowrap items-center bg-[url('./images/213-sun-filled.svg')] bg-left bg-no-repeat pl-4 font-[600] dark:bg-[url('./images/213-sun.svg')]">
       <input
         type="checkbox"
         onChange={handleChange}
         className="h-0 w-0 opacity-0"
       />
-      <img src={icon} alt="icon of the sun" />
       Dark Mode
     </label>
   );
