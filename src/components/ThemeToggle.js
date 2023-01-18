@@ -15,7 +15,7 @@ function ThemeToggle() {
 
   return (
     // eslint-disable-next-line tailwindcss/no-contradicting-classname
-    <label className="flex flex-nowrap items-center bg-[url('./images/213-sun-filled.svg')] bg-left bg-no-repeat pl-4 font-[600] dark:bg-[url('./images/213-sun.svg')]">
+    <label className="flex cursor-pointer flex-nowrap items-center bg-[url('./images/213-sun-filled.svg')] bg-left bg-no-repeat p-4 font-[600] dark:bg-[url('./images/213-sun.svg')]">
       <input
         type="checkbox"
         onChange={handleChange}

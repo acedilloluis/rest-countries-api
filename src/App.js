@@ -6,7 +6,7 @@ import Filter from './components/Filter';
 const FILTER_MAP = {
   All: () => true,
   Africa: (country) => country.region === 'Africa',
-  America: (country) => country.region === 'America',
+  Americas: (country) => country.region === 'Americas',
   Asia: (country) => country.region === 'Asia',
   Europe: (country) => country.region === 'Europe',
   Oceania: (country) => country.region === 'Oceania',
@@ -50,12 +50,12 @@ export default function App() {
     <>
       <Header />
 
-      <div className="mb-6 flex flex-nowrap items-center justify-between px-5">
+      <div className="mb-6 flex flex-wrap items-center justify-between space-y-4 px-5">
         <SearchBar setSearchTerm={setSearchTerm} />
         <Filter setFilter={setFilter} />
       </div>
 
-      <div className="grid auto-rows-[minmax(350px,auto)] grid-cols-[repeat(auto-fill,minmax(305px,1fr))] gap-3">
+      <div className="grid auto-rows-[minmax(350px,auto)] grid-cols-[repeat(auto-fill,minmax(305px,1fr))] gap-4 px-4">
         {cards}
       </div>
     </>

@@ -5,11 +5,11 @@ function Card({ name, pop, capital, region, flag }) {
   const formattedPop = pop.toLocaleString();
 
   return (
-    <div className="rounded bg-white dark:bg-dark-blue">
+    <div className="rounded bg-white shadow dark:bg-dark-blue">
       <img
         src={flag}
         alt={`${name}'s flag`}
-        className="h-[175px] w-full object-cover object-center"
+        className="h-[175px] w-full rounded object-cover object-center"
       />
       <div className="p-5">
         <h2 className="mb-3 font-[800]">{name}</h2>

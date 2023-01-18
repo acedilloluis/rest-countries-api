@@ -22,7 +22,7 @@ function Filter({ setFilter }) {
           aria-haspopup="true"
           onClick={toggleDropdown}
           // eslint-disable-next-line tailwindcss/no-contradicting-classname
-          className="inline-flex w-full justify-center rounded-md bg-white bg-[url('./images/324-circle-down.svg')] bg-right bg-no-repeat bg-origin-padding py-2 pl-4 pr-6 text-sm font-[300] shadow-sm dark:bg-dark-blue dark:bg-[url('./images/324-circle-down-dark.svg')] dark:text-white"
+          className="inline-flex w-full justify-center rounded-md bg-white bg-[url('./images/324-circle-down.svg')] bg-right bg-no-repeat bg-origin-padding py-2 pl-4 pr-6 text-sm font-[300] shadow dark:bg-dark-blue dark:bg-[url('./images/324-circle-down-dark.svg')] dark:text-white"
         >
           Filter by Region
         </button>
@@ -34,7 +34,7 @@ function Filter({ setFilter }) {
         aria-orientation="vertical"
         aria-labelledby="menu-button"
         tabIndex="-1"
-        className="absolute right-0 z-10 mt-2 hidden w-56 origin-top-right rounded-md bg-white font-[300] shadow-lg focus:outline-none dark:bg-dark-blue dark:text-white"
+        className="absolute right-0 z-10 mt-2 hidden w-full origin-top-right rounded-md bg-white font-[300] shadow-lg focus:outline-none dark:bg-dark-blue dark:text-white"
       >
         <div className="py-1" role="none">
           <a
@@ -59,10 +59,10 @@ function Filter({ setFilter }) {
             href="#"
             role="menuitem"
             tabIndex="-1"
-            onClick={() => handleClick('America')}
+            onClick={() => handleClick('Americas')}
             className="block px-4 py-2"
           >
-            America
+            Americas
           </a>
           <a
             href="#"
