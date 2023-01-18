@@ -30,7 +30,7 @@ export default function App() {
   const cards = countries
     .sort((a, b) =>
       a.name.common.toUpperCase().localeCompare(b.name.common.toUpperCase())
-    ) // locale compare to compare strings with non-ascii chars
+    ) // locale compare to compare strings with non-ascii chars to order cards alphabetically
     .filter(FILTER_MAP[filter]) // filter by region
     .filter((country) =>
       country.name.common.toUpperCase().includes(searchTerm.toUpperCase())
