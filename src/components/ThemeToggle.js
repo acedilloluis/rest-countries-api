@@ -19,7 +19,7 @@ function ThemeToggle() {
   }
 
   return (
-    <label className="flex flex-nowrap items-center">
+    <label className="flex flex-nowrap items-center font-[600]">
       <input
         type="checkbox"
         onChange={handleChange}
