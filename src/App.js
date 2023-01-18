@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Card from './components/Card';
 import SearchBar from './components/SearchBar';
 import Filter from './components/Filter';
+import Modal from './components/Modal';
 const FILTER_MAP = {
   All: () => true,
   Africa: (country) => country.region === 'Africa',
@@ -16,6 +17,18 @@ export default function App() {
   const [countries, setCountries] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('All');
+  const [selectedCountry, setSelectedCountry] = useState('');
+
+  function openModal(cca3) {
+    const country = countries.find((country) => country.cca3 == cca3);
+    setSelectedCountry(country);
+  }
+
+  function findBorders(borders) {
+    return borders.map((border) =>
+      countries.find((country) => country.cca3 === border)
+    );
+  }
 
   useEffect(() => {
     try {
@@ -39,10 +52,12 @@ export default function App() {
       <Card
         key={country.name.common}
         name={country.name.common}
+        cca3={country.cca3}
         pop={country.population}
         capital={country.capital}
         region={country.region}
         flag={country.flags.svg}
+        openModal={openModal}
       />
     ));
 
@@ -58,6 +73,10 @@ export default function App() {
       <div className="grid auto-rows-[minmax(350px,auto)] grid-cols-[repeat(auto-fill,minmax(305px,1fr))] gap-4 px-4">
         {cards}
       </div>
+
+      {selectedCountry !== '' && (
+        <Modal country={selectedCountry} findBorders={findBorders} />
+      )}
     </>
   );
 }
