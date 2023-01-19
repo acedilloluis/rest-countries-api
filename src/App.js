@@ -75,7 +75,11 @@ export default function App() {
       </div>
 
       {selectedCountry !== '' && (
-        <Modal country={selectedCountry} findBorders={findBorders} />
+        <Modal
+          country={selectedCountry}
+          findBorders={findBorders}
+          setSelectedCountry={setSelectedCountry}
+        />
       )}
     </>
   );

@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import BackBtn from './BackBtn';
 
-function Modal({ country, findBorders }) {
+function Modal({ country, findBorders, setSelectedCountry }) {
   const countryKeys = Object.keys(country);
   const nativeNameKeys = Object.keys(country.name.nativeName);
   const currencyKeys = Object.keys(country.currencies);
@@ -13,7 +14,7 @@ function Modal({ country, findBorders }) {
   const tld = country.tld.join(', ');
   const currencies = currencyKeys
     .map((key) => country.currencies[key])
-    .map((currency) => `${currency.name} ${currency.symbol}`)
+    .map((currency) => `${currency.name} (${currency.symbol})`)
     .join(', ');
   const languages = languageKeys
     .map((key) => country.languages[key])
@@ -32,19 +33,24 @@ function Modal({ country, findBorders }) {
         </li>
       );
     });
-    borderList = <ul className="font-[300]">{borderNames}</ul>;
+    borderList = (
+      <ul className="flex flex-nowrap items-center justify-evenly font-[300]">
+        {borderNames}
+      </ul>
+    );
   }
 
   return (
-    <aside>
+    <aside className="p-6">
+      <BackBtn setSelectedCountry={setSelectedCountry} />
       <img
         src={country.flags.svg}
         alt={`${country.name.common}'s flag`}
         className="h-auto max-w-full"
       />
       <div>
-        <h2 className="text-xl font-[800]">{country.name.common}</h2>
-        <ul className="font-[600]">
+        <h2 className="my-6 text-xl font-[800]">{country.name.common}</h2>
+        <ul className="mb-6 font-[600]">
           <li>
             Native Name:{' '}
             <span className="font-[300]">
@@ -67,7 +73,7 @@ function Modal({ country, findBorders }) {
             Capital: <span className="font-[300]">{country.capital}</span>
           </li>
         </ul>
-        <ul>
+        <ul className="mb-6 font-[600]">
           <li>
             Top Level Domain: <span className="font-[300]">{tld}</span>
           </li>
@@ -78,7 +84,7 @@ function Modal({ country, findBorders }) {
             Languages: <span className="font-[300]">{languages}</span>
           </li>
         </ul>
-        <h3 className="text-lg font-[600]">Border Countries:</h3>
+        <h3 className="mb-6 text-lg font-[600]">Border Countries:</h3>
         {borderList}
       </div>
     </aside>
@@ -88,6 +94,7 @@ function Modal({ country, findBorders }) {
 Modal.propTypes = {
   country: PropTypes.object,
   findBorders: PropTypes.func,
+  setSelectedCountry: PropTypes.func,
 };
 
 export default Modal;
