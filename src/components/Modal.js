@@ -53,49 +53,56 @@ function Modal({ country, findBorders, setSelectedCountry }) {
   return (
     <aside className="fixed top-0 left-0 h-full w-full overflow-y-scroll bg-very-light-gray p-6 dark:bg-very-dark-blue">
       <BackBtn setSelectedCountry={setSelectedCountry} />
-      <img
-        src={country.flags.svg}
-        alt={`${country.name.common}'s flag`}
-        className="h-auto max-w-full"
-      />
-      <div>
-        <h2 className="my-6 text-xl font-[800]">{country.name.common}</h2>
-        <ul className="mb-6 font-[600]">
-          <li>
-            Native Name:{' '}
-            <span className="font-[300]">
-              {country.name.official}, {nativeNames}
-            </span>
-          </li>
-          <li>
-            Population:{' '}
-            <span className="font-[300]">
-              {country.population.toLocaleString()}
-            </span>
-          </li>
-          <li>
-            Region: <span className="font-[300]">{country.region}</span>
-          </li>
-          <li>
-            Sub Region: <span className="font-[300]">{country.subregion}</span>
-          </li>
-          <li>
-            Capital: <span className="font-[300]">{country.capital}</span>
-          </li>
-        </ul>
-        <ul className="mb-6 font-[600]">
-          <li>
-            Top Level Domain: <span className="font-[300]">{tld}</span>
-          </li>
-          <li>
-            Currencies: <span className="font-[300]">{currencies}</span>
-          </li>
-          <li>
-            Languages: <span className="font-[300]">{languages}</span>
-          </li>
-        </ul>
-        <h3 className="mb-6 text-lg font-[600]">Border Countries:</h3>
-        {borderList}
+      <div className="lg:flex lg:flex-nowrap lg:items-center lg:justify-start lg:gap-6">
+        <img
+          src={country.flags.svg}
+          alt={`${country.name.common}'s flag`}
+          className="h-auto max-w-full lg:w-1/2"
+        />
+        <div className="lg:basis-1/2">
+          <h2 className="my-6 text-xl font-[800]">{country.name.common}</h2>
+          <div className="mb-6 flex flex-col justify-start gap-6 md:flex-row md:items-center md:gap-10">
+            <ul className="font-[600] md:basis-1/2">
+              <li>
+                Native Name:{' '}
+                <span className="font-[300]">
+                  {country.name.official}, {nativeNames}
+                </span>
+              </li>
+              <li>
+                Population:{' '}
+                <span className="font-[300]">
+                  {country.population.toLocaleString()}
+                </span>
+              </li>
+              <li>
+                Region: <span className="font-[300]">{country.region}</span>
+              </li>
+              <li>
+                Sub Region:{' '}
+                <span className="font-[300]">{country.subregion}</span>
+              </li>
+              <li>
+                Capital: <span className="font-[300]">{country.capital}</span>
+              </li>
+            </ul>
+            <ul className="font-[600] md:basis-1/2">
+              <li>
+                Top Level Domain: <span className="font-[300]">{tld}</span>
+              </li>
+              <li>
+                Currencies: <span className="font-[300]">{currencies}</span>
+              </li>
+              <li>
+                Languages: <span className="font-[300]">{languages}</span>
+              </li>
+            </ul>
+          </div>
+          <div className="flex flex-col justify-start gap-6 md:flex-row md:items-center">
+            <h3 className="text-lg font-[600]">Border Countries:</h3>
+            {borderList}
+          </div>
+        </div>
       </div>
     </aside>
   );
