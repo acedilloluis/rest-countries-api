@@ -4,21 +4,31 @@ import BackBtn from './BackBtn';
 
 function Modal({ country, findBorders, setSelectedCountry }) {
   const countryKeys = Object.keys(country);
-  const nativeNameKeys = Object.keys(country.name.nativeName);
-  const currencyKeys = Object.keys(country.currencies);
-  const languageKeys = Object.keys(country.languages);
 
-  const nativeNames = nativeNameKeys
-    .map((key) => country.name.nativeName[key].official)
-    .join(', ');
-  const tld = country.tld.join(', ');
-  const currencies = currencyKeys
-    .map((key) => country.currencies[key])
-    .map((currency) => `${currency.name} (${currency.symbol})`)
-    .join(', ');
-  const languages = languageKeys
-    .map((key) => country.languages[key])
-    .join(', ');
+  let nativeNames = '';
+  if (countryKeys.includes('nativeName')) {
+    nativeNames = Object.keys(country.name.nativeName)
+      .map((key) => country.name.nativeName[key].official)
+      .join(', ');
+  }
+
+  let tld = '';
+  if (countryKeys.includes('tld')) tld = country.tld.join(', ');
+
+  let currencies = '';
+  if (countryKeys.includes('currencies')) {
+    currencies = Object.keys(country.currencies)
+      .map((key) => country.currencies[key])
+      .map((currency) => `${currency.name} (${currency.symbol})`)
+      .join(', ');
+  }
+
+  let languages = '';
+  if (countryKeys.includes('languages')) {
+    languages = Object.keys(country.languages)
+      .map((key) => country.languages[key])
+      .join(', ');
+  }
 
   let borderList = '';
   if (countryKeys.includes('borders')) {
@@ -27,21 +37,21 @@ function Modal({ country, findBorders, setSelectedCountry }) {
       return (
         <li
           key={country.cca3}
-          className="inline w-min bg-white px-6 py-4 shadow dark:bg-dark-blue"
+          className="inline bg-white px-6 py-4 shadow dark:bg-dark-blue"
         >
           {country.name.common}
         </li>
       );
     });
     borderList = (
-      <ul className="flex flex-wrap items-center justify-evenly font-[300]">
+      <ul className="flex flex-wrap items-center gap-4 font-[300]">
         {borderNames}
       </ul>
     );
   }
 
   return (
-    <aside className="p-6">
+    <aside className="fixed top-0 left-0 h-full w-full overflow-y-scroll bg-very-light-gray p-6 dark:bg-very-dark-blue">
       <BackBtn setSelectedCountry={setSelectedCountry} />
       <img
         src={country.flags.svg}
