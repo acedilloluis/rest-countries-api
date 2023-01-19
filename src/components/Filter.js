@@ -22,7 +22,7 @@ function Filter({ setFilter }) {
           aria-haspopup="true"
           onClick={toggleDropdown}
           // eslint-disable-next-line tailwindcss/no-contradicting-classname
-          className="inline-flex w-full justify-center rounded-md bg-white bg-[url('./images/324-circle-down.svg')] bg-right bg-no-repeat bg-origin-padding py-2 pl-4 pr-6 text-sm font-[300] shadow dark:bg-dark-blue dark:bg-[url('./images/324-circle-down-dark.svg')] dark:text-white"
+          className="inline-flex w-44 justify-center rounded-md bg-white bg-[url('./images/324-circle-down.svg')] bg-right bg-no-repeat bg-origin-content py-2 px-4 text-sm font-[300] shadow dark:bg-dark-blue dark:bg-[url('./images/324-circle-down-dark.svg')] dark:text-white"
         >
           Filter by Region
         </button>

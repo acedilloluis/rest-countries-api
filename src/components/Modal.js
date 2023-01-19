@@ -34,7 +34,7 @@ function Modal({ country, findBorders, setSelectedCountry }) {
       );
     });
     borderList = (
-      <ul className="flex flex-nowrap items-center justify-evenly font-[300]">
+      <ul className="flex flex-wrap items-center justify-evenly font-[300]">
         {borderNames}
       </ul>
     );

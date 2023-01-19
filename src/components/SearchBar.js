@@ -13,7 +13,7 @@ function SearchBar({ setSearchTerm }) {
         placeholder="Search for a country..."
         onChange={(e) => setSearchTerm(e.target.value)}
         // eslint-disable-next-line tailwindcss/no-contradicting-classname
-        className="rounded-md bg-white bg-[url('./images/135-search.svg')] bg-left bg-no-repeat bg-origin-padding py-6 pr-6 pl-8 font-sans text-dark-gray shadow dark:bg-dark-blue dark:bg-[url('./images/135-search-dark.svg')] dark:text-white"
+        className="rounded-md bg-white bg-[url('./images/135-search.svg')] bg-left bg-no-repeat bg-origin-content p-6 indent-6 font-sans text-dark-gray shadow dark:bg-dark-blue dark:bg-[url('./images/135-search-dark.svg')] dark:text-white"
       />
     </>
   );
