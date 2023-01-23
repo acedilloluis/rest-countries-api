@@ -70,7 +70,7 @@ export default function App() {
         <Filter setFilter={setFilter} />
       </div>
 
-      <div className="grid auto-rows-[minmax(350px,auto)] grid-cols-[repeat(auto-fill,minmax(305px,1fr))] gap-4 px-4">
+      <div className="grid auto-rows-[minmax(350px,auto)] grid-cols-[repeat(auto-fill,minmax(305px,1fr))] gap-4 p-4">
         {cards}
       </div>
 

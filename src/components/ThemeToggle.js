@@ -6,10 +6,10 @@ function ThemeToggle() {
   function handleChange() {
     if (theme === 'dark') {
       setTheme('light');
-      document.querySelector('body').classList.remove('dark');
+      document.querySelector('html').classList.remove('dark');
     } else {
       setTheme('dark');
-      document.querySelector('body').classList.add('dark');
+      document.querySelector('html').classList.add('dark');
     }
   }
 
