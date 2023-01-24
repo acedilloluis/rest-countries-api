@@ -6,8 +6,12 @@ function Card({ name, cca3, pop, capital, region, flag, openModal }) {
 
   return (
     <section
+      tabIndex={0}
       onClick={() => openModal(cca3)}
-      className="rounded bg-white shadow dark:bg-dark-blue"
+      onKeyDown={(e) => {
+        if (e.key === 'Enter') openModal(cca3);
+      }}
+      className="cursor-pointer rounded bg-white shadow dark:bg-dark-blue"
     >
       <img
         src={flag}

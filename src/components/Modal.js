@@ -66,7 +66,8 @@ function Modal({ country, findBorders, setSelectedCountry }) {
               <li>
                 Native Name:{' '}
                 <span className="font-[300]">
-                  {country.name.official}, {nativeNames}
+                  {country.name.official}{' '}
+                  {nativeNames !== '' ? `, ${nativeNames}` : ''}
                 </span>
               </li>
               <li>
