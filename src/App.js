@@ -22,6 +22,7 @@ export default function App() {
   function openModal(cca3) {
     const country = countries.find((country) => country.cca3 == cca3);
     setSelectedCountry(country);
+    document.querySelector('body').setAttribute('style', 'overflow-y: hidden');
   }
 
   function findBorders(borders) {
@@ -70,7 +71,10 @@ export default function App() {
         <Filter filter={filter} setFilter={setFilter} />
       </div>
 
-      <div className="grid auto-rows-[minmax(350px,auto)] grid-cols-[repeat(auto-fill,minmax(305px,1fr))] gap-4 p-4">
+      <div
+        id="card-container"
+        className="grid auto-rows-[minmax(350px,auto)] grid-cols-[repeat(auto-fill,minmax(305px,1fr))] gap-4 p-4"
+      >
         {cards}
       </div>
 

@@ -6,7 +6,12 @@ function BackBtn({ setSelectedCountry }) {
     <button
       type="button"
       title="Go back"
-      onClick={() => setSelectedCountry('')}
+      onClick={() => {
+        setSelectedCountry('');
+        document
+          .querySelector('body')
+          .setAttribute('style', 'overflow-y: scroll');
+      }}
       // eslint-disable-next-line tailwindcss/no-contradicting-classname
       className="mb-6 rounded bg-white bg-[url('./images/313-arrow-left.svg')] bg-left bg-no-repeat bg-origin-content px-6 py-4 indent-6 dark:bg-dark-blue dark:bg-[url('./images/313-arrow-left-dark.svg')]"
     >
