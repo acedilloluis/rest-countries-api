@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-function Filter({ setFilter }) {
+function Filter({ filter, setFilter }) {
+  const [isFilterPicked, setIsFilterPicked] = useState(false);
+
   function toggleDropdown() {
     const dropdown = document.querySelector('#dropdown');
     dropdown.classList.contains('hidden')
@@ -11,6 +13,7 @@ function Filter({ setFilter }) {
 
   function handleClick(filterName) {
     setFilter(filterName);
+    setIsFilterPicked(true);
   }
 
   return (
@@ -24,7 +27,7 @@ function Filter({ setFilter }) {
           // eslint-disable-next-line tailwindcss/no-contradicting-classname
           className="inline-flex w-44 justify-center rounded-md bg-white bg-[url('./images/324-circle-down.svg')] bg-right bg-no-repeat bg-origin-content py-2 pr-4 pl-2 text-sm font-[300] shadow dark:bg-dark-blue dark:bg-[url('./images/324-circle-down-dark.svg')] dark:text-white"
         >
-          Filter by Region
+          {isFilterPicked ? filter : 'Filter by Region'}
         </button>
       </div>
 
@@ -92,6 +95,7 @@ function Filter({ setFilter }) {
 }
 
 Filter.propTypes = {
+  filter: PropTypes.string,
   setFilter: PropTypes.func,
 };
 

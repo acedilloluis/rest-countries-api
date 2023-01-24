@@ -67,14 +67,12 @@ export default function App() {
 
       <div className="mb-6 flex flex-wrap items-center justify-between space-y-4 px-5">
         <SearchBar setSearchTerm={setSearchTerm} />
-        <Filter setFilter={setFilter} />
+        <Filter filter={filter} setFilter={setFilter} />
       </div>
 
-      {selectedCountry === '' && (
-        <div className="grid auto-rows-[minmax(350px,auto)] grid-cols-[repeat(auto-fill,minmax(305px,1fr))] gap-4 p-4">
-          {cards}
-        </div>
-      )}
+      <div className="grid auto-rows-[minmax(350px,auto)] grid-cols-[repeat(auto-fill,minmax(305px,1fr))] gap-4 p-4">
+        {cards}
+      </div>
 
       {selectedCountry !== '' && (
         <Modal
